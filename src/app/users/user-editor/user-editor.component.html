@@ -1,0 +1,44 @@
+<div class="default-component">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="editor-panel">
+      <label>Name <input formControlName="name" required /></label>
+
+      <label>Username <input formControlName="username" /></label>
+      <label>Email <input formControlName="email" /></label>
+      <label>Phone <input formControlName="phone" /></label>
+      <label>Website <input formControlName="website" /></label>
+
+      <div formGroupName="address">
+        <h2>Address</h2>
+        <label>street <input formControlName="street" /></label>
+        <label>suite <input formControlName="suite" /></label>
+        <label>city <input formControlName="city" /></label>
+        <label>zipcode <input formControlName="zipcode" /></label>
+        <div formGroupName="geo">
+          <label>lat <input formControlName="lat" /></label>
+          <label>lng <input formControlName="lng" /></label>
+        </div>
+      </div>
+      <div formGroupName="company">
+        <h2>Company</h2>
+        <label>name <input formControlName="name" /></label>
+        <label>catchPhrase <input formControlName="catchPhrase" /></label>
+        <label>bs <input formControlName="bs" /></label>
+      </div>
+    </div>
+    <div class="button-holder">
+      <button *ngIf="!(currentUser | async)" class="list-button" type="submit">
+        Save user
+      </button>
+      <button
+        *ngIf="!(readonly | async) && (currentUser | async)"
+        class="list-button"
+        type="button"
+        (click)="updateUser()"
+      >
+        Save changes
+      </button>
+      <button class="list-button" type="button" (click)="back()">Back</button>
+    </div>
+  </form>
+</div>

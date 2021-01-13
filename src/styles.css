@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  /* I do not own this image */
+  background-image: url("./assets/wp.png");
+}
+.default-component {
+  margin: 20px;
+}
+button,
+button:focus,
+button:active {
+  font-family: fantasy;
+  font-size: 15px;
+  color: #3e3f3e;
+  background-color: #45cc57;
+  border: 2px solid #008000;
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin: 0px 5px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 2px 4px 4px #5f5e5e;
+}
+
+.list-button:hover {
+  color: rgb(213, 250, 202);
+  box-shadow: none;
+}

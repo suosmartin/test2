@@ -1,0 +1,64 @@
+<div class="default-component">
+  <h1 class="users-header">Users</h1>
+  <div class="button-holder">
+    <button class="list-button" [routerLink]="['adduser']">Add User</button>
+    <button *ngIf="!showFilter" class="list-button" (click)="togleFilter()">
+      Show Filter
+    </button>
+    <button *ngIf="showFilter" class="list-button" (click)="togleFilter()">
+      Hide Filter
+    </button>
+  </div>
+  <div *ngIf="showFilter" class="editor-panel">
+    <h3 class="filter-h">Filter (filtered in the store instead of backend)</h3>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label>Name <input formControlName="name" required /></label>
+
+      <label>Username <input formControlName="username" /></label>
+      <label>Email <input formControlName="email" /></label>
+    </form>
+  </div>
+  <div class="table-wrapper" *ngIf="(users | async) !== null">
+    <div class="action-button-holder"></div>
+    <table class="users-table">
+      <thead>
+        <tr>
+          <td class="clickable-header" (click)="sortByName()">Name*</td>
+          <td>UserName</td>
+          <td>Email address</td>
+          <td>Company</td>
+          <td>Website</td>
+
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | async">
+          <td>
+            {{ user.name }}
+          </td>
+          <td>
+            {{ user.username }}
+          </td>
+          <td>
+            {{ user.email }}
+          </td>
+          <td>
+            {{ user.company.name }}
+          </td>
+          <td>
+            {{ user.website }}
+          </td>
+          <td>
+            <button class="list-button" (click)="modify(user)">Modify</button>
+            <button class="list-button" (click)="open(user)">View</button>
+            <button class="list-button" (click)="delete(user.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

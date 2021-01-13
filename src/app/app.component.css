@@ -1,0 +1,25 @@
+.header {
+  grid-area: header;
+  background: #45cc57;
+  background: linear-gradient(to left, #45cc57, white, #45cc57);
+  color: rgb(16, 129, 59);
+  font-size: 30px;
+  font-family: fantasy;
+  margin: none;
+  padding: 10px 0px;
+  text-align: center;
+  top: 0px;
+  width: 100%;
+  height: 38px;
+  position: sticky;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+}
+.scrollable-content {
+  grid-area: main;
+  overflow: hidden;
+}

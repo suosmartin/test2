@@ -1,0 +1,22 @@
+.editor-panel {
+  border-radius: 20px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px #5f5e5e;
+  padding: 15px;
+  label {
+    display: inline-block;
+    font-family: fantasy;
+    margin: 10px;
+    width: 300px;
+    text-transform: capitalize;
+    input {
+      display: block;
+      width: 200px;
+    }
+  }
+}
+.button-holder {
+  margin-top: 10px;
+  text-align: right;
+}
